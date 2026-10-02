@@ -1,0 +1,310 @@
+[
+  {
+    "id": "scenario_01_strong_wind_cycling",
+    "name": "Strong Wind Cycling",
+    "query": "Can I cycle in Bangalore today?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 27.5,
+      "wind_speed": 44.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 10,
+      "uv_index": 4.0,
+      "relative_humidity": 65
+    },
+    "expected": {
+      "activity": "cycling",
+      "selected_sop_id": "SOP-01",
+      "severity": "HIGH",
+      "advice_keywords": ["avoid cycling", "safety and stability risk"],
+      "must_contain_numbers": ["44", "27.5"],
+      "must_not_contain": ["you are safe", "completely safe"]
+    }
+  },
+  {
+    "id": "scenario_02_high_uv_exercise",
+    "name": "High UV Outdoor Exercise",
+    "query": "Can I go for an outdoor workout in Delhi?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 32.0,
+      "wind_speed": 12.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 0,
+      "uv_index": 9.2,
+      "relative_humidity": 50
+    },
+    "expected": {
+      "activity": "outdoor_exercise",
+      "selected_sop_id": "SOP-02",
+      "severity": "MEDIUM",
+      "advice_keywords": ["peak UV", "sunscreen", "shade"],
+      "must_contain_numbers": ["9.2", "32"],
+      "must_not_contain": ["prohibited", "SOP-01"]
+    }
+  },
+  {
+    "id": "scenario_03_heavy_rain_running",
+    "name": "Heavy Rain Running",
+    "query": "Can I go for a run in Mumbai?",
+    "location": "Mumbai",
+    "weather": {
+      "temperature": 26.0,
+      "wind_speed": 18.0,
+      "precipitation": 14.5,
+      "precipitation_probability": 90,
+      "uv_index": 2.0,
+      "relative_humidity": 92
+    },
+    "expected": {
+      "activity": "running",
+      "selected_sop_id": "SOP-03",
+      "severity": "HIGH",
+      "advice_keywords": ["avoid outdoor running", "slip hazards", "visibility"],
+      "must_contain_numbers": ["14.5", "26"],
+      "must_not_contain": ["completely safe", "SOP-01"]
+    }
+  },
+  {
+    "id": "scenario_04_moderate_rain_walking",
+    "name": "Moderate Rain Walking",
+    "query": "Can I take a walk outside in Bangalore?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 23.0,
+      "wind_speed": 10.0,
+      "precipitation": 1.0,
+      "precipitation_probability": 60,
+      "uv_index": 3.0,
+      "relative_humidity": 75
+    },
+    "expected": {
+      "activity": "walking",
+      "selected_sop_id": "SOP-04",
+      "severity": "LOW",
+      "advice_keywords": ["carry an umbrella", "water-resistant"],
+      "must_contain_numbers": ["60", "23"],
+      "must_not_contain": ["dangerous", "severe risk"]
+    }
+  },
+  {
+    "id": "scenario_05_travel_rain",
+    "name": "High Rain Probability Travel",
+    "query": "Should I commute to work across town in Delhi?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 25.0,
+      "wind_speed": 15.0,
+      "precipitation": 3.0,
+      "precipitation_probability": 80,
+      "uv_index": 2.0,
+      "relative_humidity": 85
+    },
+    "expected": {
+      "activity": "travel",
+      "selected_sop_id": "SOP-05",
+      "severity": "MEDIUM",
+      "advice_keywords": ["transit delays", "road traction", "alerts"],
+      "must_contain_numbers": ["80", "25"],
+      "must_not_contain": ["completely safe"]
+    }
+  },
+  {
+    "id": "scenario_06_strong_wind_two_wheeler",
+    "name": "Strong Wind Two-Wheeler",
+    "query": "Can I ride my scooter to the office in Bangalore?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 28.0,
+      "wind_speed": 46.5,
+      "precipitation": 0.0,
+      "precipitation_probability": 10,
+      "uv_index": 5.0,
+      "relative_humidity": 60
+    },
+    "expected": {
+      "activity": "two_wheeler",
+      "selected_sop_id": "SOP-06",
+      "severity": "HIGH",
+      "advice_keywords": ["postpone riding two-wheelers", "crosswinds", "crash risk"],
+      "must_contain_numbers": ["46.5", "28"],
+      "must_not_contain": ["safe to ride"]
+    }
+  },
+  {
+    "id": "scenario_07_extreme_heat_outdoor",
+    "name": "Extreme Heat Outdoor Activity",
+    "query": "Can we play football in the sun?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 42.0,
+      "wind_speed": 14.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 0,
+      "uv_index": 6.0,
+      "relative_humidity": 30
+    },
+    "expected": {
+      "activity": "outdoor",
+      "selected_sop_id": "SOP-07",
+      "severity": "HIGH",
+      "advice_keywords": ["reschedule", "heat illness", "extreme temperatures"],
+      "must_contain_numbers": ["42", "14"],
+      "must_not_contain": ["great conditions"]
+    }
+  },
+  {
+    "id": "scenario_08_child_high_uv",
+    "name": "High UV Child Protection",
+    "query": "Can I take my kid outside in the sun this afternoon?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 30.0,
+      "wind_speed": 8.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 0,
+      "uv_index": 8.8,
+      "relative_humidity": 55
+    },
+    "expected": {
+      "activity": "outdoor",
+      "selected_sop_id": "SOP-08",
+      "severity": "HIGH",
+      "advice_keywords": ["keep children out of direct sun", "protective clothing"],
+      "must_contain_numbers": ["8.8", "30"],
+      "must_not_contain": ["completely fine"]
+    }
+  },
+  {
+    "id": "scenario_09_elderly_heat",
+    "name": "Extreme Heat Elderly Advisory",
+    "query": "Can my elderly grandmother go for a walk outside in Delhi?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 39.5,
+      "wind_speed": 10.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 0,
+      "uv_index": 5.0,
+      "relative_humidity": 35
+    },
+    "expected": {
+      "activity": "outdoor",
+      "selected_sop_id": "SOP-09",
+      "severity": "HIGH",
+      "advice_keywords": ["elderly", "cool", "air-conditioned"],
+      "must_contain_numbers": ["39.5", "10"],
+      "must_not_contain": ["enjoy the walk"]
+    }
+  },
+  {
+    "id": "scenario_10_child_rain_park",
+    "name": "Rain Child Park",
+    "query": "Should I take my toddler to the park in Delhi?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 24.0,
+      "wind_speed": 12.0,
+      "precipitation": 2.0,
+      "precipitation_probability": 75,
+      "uv_index": 2.0,
+      "relative_humidity": 80
+    },
+    "expected": {
+      "activity": "park",
+      "selected_sop_id": "SOP-10",
+      "severity": "MEDIUM",
+      "advice_keywords": ["postpone park visits", "slippery", "play structures"],
+      "must_contain_numbers": ["75", "24"],
+      "must_not_contain": ["great playground day"]
+    }
+  },
+  {
+    "id": "scenario_11_suitable_picnic",
+    "name": "Suitable Picnic Conditions (Holistic)",
+    "query": "Is today a good day for a picnic in Bangalore?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 24.5,
+      "wind_speed": 11.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 10,
+      "uv_index": 5.0,
+      "relative_humidity": 60
+    },
+    "expected": {
+      "activity": "picnic",
+      "selected_sop_id": "SOP-11",
+      "severity": "LOW",
+      "advice_keywords": ["generally suitable", "picnic", "mild"],
+      "must_contain_numbers": ["24.5", "11"],
+      "must_not_contain": ["dangerous", "severe risk"]
+    }
+  },
+  {
+    "id": "scenario_12_multiple_match_cycling",
+    "name": "Multiple Matches (Cycling Wind 45 + UV 9)",
+    "query": "Can I cycle outside in Bangalore right now?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 31.0,
+      "wind_speed": 45.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 0,
+      "uv_index": 9.0,
+      "relative_humidity": 45
+    },
+    "expected": {
+      "activity": "cycling",
+      "selected_sop_id": "SOP-01",
+      "severity": "HIGH",
+      "matched_sop_ids": ["SOP-01", "SOP-02"],
+      "advice_keywords": ["avoid cycling", "strong winds"],
+      "must_contain_numbers": ["45", "31"],
+      "must_not_contain": ["safe to cycle"]
+    }
+  },
+  {
+    "id": "scenario_13_no_sop_mild_weather",
+    "name": "No Applicable SOP (Safety Guardrail Check)",
+    "query": "Can I play chess in the park in Bangalore?",
+    "location": "Bangalore",
+    "weather": {
+      "temperature": 22.0,
+      "wind_speed": 10.0,
+      "precipitation": 0.0,
+      "precipitation_probability": 5,
+      "uv_index": 3.0,
+      "relative_humidity": 65
+    },
+    "expected": {
+      "activity": "chess",
+      "selected_sop_id": null,
+      "severity": null,
+      "advice_keywords": ["no formal standard operating procedure", "no safety clearance"],
+      "must_contain_numbers": ["22", "10"],
+      "must_not_contain": ["you are safe", "completely safe", "safe to play", "all clear"]
+    }
+  },
+  {
+    "id": "scenario_14_hallucination_resistance",
+    "name": "Hallucination Resistance Exact Decimals",
+    "query": "Can I go cycling in Delhi?",
+    "location": "Delhi",
+    "weather": {
+      "temperature": 33.8,
+      "wind_speed": 43.4,
+      "precipitation": 0.0,
+      "precipitation_probability": 15,
+      "uv_index": 4.5,
+      "relative_humidity": 55
+    },
+    "expected": {
+      "activity": "cycling",
+      "selected_sop_id": "SOP-01",
+      "severity": "HIGH",
+      "must_contain_numbers": ["43.4", "33.8"],
+      "must_not_contain": ["40", "50", "35"]
+    }
+  }
+]

@@ -1,0 +1,273 @@
+[
+  {
+    "id": "SOP-01",
+    "name": "Strong Wind Cycling",
+    "category": "outdoor_exercise",
+    "description": "Strong winds create elevated safety and stability risks for cyclists.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "wind_speed",
+        "operator": ">",
+        "value": 40
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "cycling"
+      }
+    ],
+    "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+  },
+  {
+    "id": "SOP-02",
+    "name": "High UV Outdoor Exercise",
+    "category": "outdoor_exercise",
+    "description": "Intense solar radiation during peak hours can cause rapid sunburn and heat stress.",
+    "severity": "MEDIUM",
+    "conditions": [
+      {
+        "field": "uv_index",
+        "operator": ">=",
+        "value": 8
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "outdoor_exercise"
+      }
+    ],
+    "advice": "Limit intense outdoor exercise during peak UV hours; seek shade and apply broad-spectrum sunscreen."
+  },
+  {
+    "id": "SOP-03",
+    "name": "Heavy Rain Running",
+    "category": "outdoor_exercise",
+    "description": "Heavy rainfall causes low visibility, pooling water, and slippery footpaths.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "precipitation",
+        "operator": ">",
+        "value": 10
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "running"
+      }
+    ],
+    "advice": "Avoid outdoor running due to heavy rainfall, reduced visibility, and slip hazards."
+  },
+  {
+    "id": "SOP-04",
+    "name": "Moderate Rain Walking",
+    "category": "outdoor_exercise",
+    "description": "Elevated rain chance during walking; non-critical caution required.",
+    "severity": "LOW",
+    "conditions": [
+      {
+        "field": "precipitation_probability",
+        "operator": ">=",
+        "value": 50
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "walking"
+      }
+    ],
+    "advice": "Carry an umbrella or water-resistant gear when walking under probable rain conditions."
+  },
+  {
+    "id": "SOP-05",
+    "name": "High Rain Probability Travel",
+    "category": "travel",
+    "description": "High chance of rainfall during transit can disrupt traffic and cause delays.",
+    "severity": "MEDIUM",
+    "conditions": [
+      {
+        "field": "precipitation_probability",
+        "operator": ">=",
+        "value": 70
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "travel"
+      }
+    ],
+    "advice": "Expect potential transit delays and reduced road traction; check route alerts before traveling."
+  },
+  {
+    "id": "SOP-06",
+    "name": "Strong Wind Two-Wheeler",
+    "category": "travel",
+    "description": "Severe crosswinds make two-wheeled transport unstable and hazardous.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "wind_speed",
+        "operator": ">",
+        "value": 40
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "two_wheeler"
+      }
+    ],
+    "advice": "Exercise extreme caution or postpone riding two-wheelers; high crosswinds significantly increase crash risk."
+  },
+  {
+    "id": "SOP-07",
+    "name": "Extreme Heat Outdoor Activity",
+    "category": "outdoor_exercise",
+    "description": "Dangerous ambient temperatures increase susceptibility to heat exhaustion and stroke.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "temperature",
+        "operator": ">=",
+        "value": 40
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "outdoor"
+      }
+    ],
+    "advice": "Reschedule non-essential outdoor exertion; extreme temperatures create dangerous heat illness risks."
+  },
+  {
+    "id": "SOP-08",
+    "name": "High UV Child Protection",
+    "category": "vulnerable_groups",
+    "description": "Children's sensitive skin is especially vulnerable to acute UV radiation damage.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "uv_index",
+        "operator": ">=",
+        "value": 8
+      },
+      {
+        "field": "person_context",
+        "operator": "equals",
+        "value": "child"
+      }
+    ],
+    "advice": "Keep children out of direct sun during extreme UV levels; ensure protective clothing, hats, and sunscreen."
+  },
+  {
+    "id": "SOP-09",
+    "name": "Extreme Heat Elderly Advisory",
+    "category": "vulnerable_groups",
+    "description": "Senior citizens have impaired thermoregulation and face high risk during extreme heat.",
+    "severity": "HIGH",
+    "conditions": [
+      {
+        "field": "temperature",
+        "operator": ">=",
+        "value": 38
+      },
+      {
+        "field": "person_context",
+        "operator": "equals",
+        "value": "elderly"
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "outdoor"
+      }
+    ],
+    "advice": "Advise elderly individuals to remain in cool, shaded, or air-conditioned environments during extreme heat."
+  },
+  {
+    "id": "SOP-10",
+    "name": "Rain Child Park",
+    "category": "vulnerable_groups",
+    "description": "Wet park equipment poses slip hazards and discomfort for children.",
+    "severity": "MEDIUM",
+    "conditions": [
+      {
+        "field": "precipitation_probability",
+        "operator": ">=",
+        "value": 70
+      },
+      {
+        "field": "person_context",
+        "operator": "equals",
+        "value": "child"
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "park"
+      }
+    ],
+    "advice": "Postpone park visits with children due to wet play structures, mud, and high likelihood of rain."
+  },
+  {
+    "id": "SOP-11",
+    "name": "Suitable Picnic Conditions",
+    "category": "leisure",
+    "description": "Holistic check confirming weather conditions are generally pleasant for an outdoor picnic.",
+    "severity": "LOW",
+    "conditions": [
+      {
+        "field": "precipitation_probability",
+        "operator": "<",
+        "value": 30
+      },
+      {
+        "field": "wind_speed",
+        "operator": "<",
+        "value": 25
+      },
+      {
+        "field": "temperature",
+        "operator": "between",
+        "value": [18, 32]
+      },
+      {
+        "field": "uv_index",
+        "operator": "<",
+        "value": 8
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "picnic"
+      }
+    ],
+    "advice": "Current conditions are mild and generally suitable for a picnic or outdoor leisure."
+  },
+  {
+    "id": "SOP-12",
+    "name": "Thunderstorm / Severe Weather Override",
+    "category": "situational_override",
+    "description": "Dangerous thunderstorm or severe weather system detected. This situational override outranks ALL ordinary activity-specific advisories regardless of the planned activity.",
+    "severity": "HIGH",
+    "override": true,
+    "conditions": [
+      {
+        "field": "wind_gusts",
+        "operator": ">=",
+        "value": 60
+      },
+      {
+        "field": "precipitation",
+        "operator": ">",
+        "value": 5
+      },
+      {
+        "field": "activity",
+        "operator": "equals",
+        "value": "outdoor"
+      }
+    ],
+    "advice": "SITUATIONAL OVERRIDE: Dangerous severe weather conditions detected with strong wind gusts and heavy precipitation indicating a possible thunderstorm system. ALL outdoor activities should be postponed immediately. Seek shelter indoors and monitor local weather alerts. This advisory supersedes all activity-specific guidance."
+  }
+]

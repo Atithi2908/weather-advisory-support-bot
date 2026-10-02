@@ -1,0 +1,1134 @@
+{
+  "total_scenarios": 14,
+  "passed_scenarios": 14,
+  "pass_rate_percent": 100.0,
+  "average_dimension_scores": {
+    "weather_factuality": 5.0,
+    "sop_correctness": 5.0,
+    "severity_correctness": 5.0,
+    "advice_preservation": 4.93,
+    "hallucination_free": 5.0,
+    "relevance": 4.86,
+    "completeness": 5.0
+  },
+  "results": [
+    {
+      "scenario_id": "scenario_01_strong_wind_cycling",
+      "scenario_name": "Strong Wind Cycling",
+      "query": "Can I cycle in Bangalore today?",
+      "expected": {
+        "activity": "cycling",
+        "selected_sop_id": "SOP-01",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "avoid cycling",
+          "safety and stability risk"
+        ],
+        "must_contain_numbers": [
+          "44",
+          "27.5"
+        ],
+        "must_not_contain": [
+          "you are safe",
+          "completely safe"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'cycling' (today):\n- Temperature: 27.5\u00b0C\n- Wind Speed: 44.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 10%\n- UV Index: 4.0\n- Relative Humidity: 65%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-01 \u2014 Strong Wind Cycling\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Avoid cycling because strong winds create a severe safety and stability risk.",
+      "actual_selected_sop": {
+        "id": "SOP-01",
+        "name": "Strong Wind Cycling",
+        "category": "outdoor_exercise",
+        "description": "Strong winds create elevated safety and stability risks for cyclists.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "wind_speed",
+            "operator": ">",
+            "value": 40
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "cycling"
+          }
+        ],
+        "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-01",
+          "name": "Strong Wind Cycling",
+          "category": "outdoor_exercise",
+          "description": "Strong winds create elevated safety and stability risks for cyclists.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "wind_speed",
+              "operator": ">",
+              "value": 40
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "cycling"
+            }
+          ],
+          "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_02_high_uv_exercise",
+      "scenario_name": "High UV Outdoor Exercise",
+      "query": "Can I go for an outdoor workout in Delhi?",
+      "expected": {
+        "activity": "outdoor_exercise",
+        "selected_sop_id": "SOP-02",
+        "severity": "MEDIUM",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "peak UV",
+          "sunscreen",
+          "shade"
+        ],
+        "must_contain_numbers": [
+          "9.2",
+          "32"
+        ],
+        "must_not_contain": [
+          "prohibited",
+          "SOP-01"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'outdoor_exercise':\n- Temperature: 32.0\u00b0C\n- Wind Speed: 12.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 0%\n- UV Index: 9.2\n- Relative Humidity: 50%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-02 \u2014 High UV Outdoor Exercise\n\u2022 Severity Level: MEDIUM\n\u2022 Official Recommendation: Limit intense outdoor exercise during peak UV hours; seek shade and apply broad-spectrum sunscreen.",
+      "actual_selected_sop": {
+        "id": "SOP-02",
+        "name": "High UV Outdoor Exercise",
+        "category": "outdoor_exercise",
+        "description": "Intense solar radiation during peak hours can cause rapid sunburn and heat stress.",
+        "severity": "MEDIUM",
+        "conditions": [
+          {
+            "field": "uv_index",
+            "operator": ">=",
+            "value": 8
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "outdoor_exercise"
+          }
+        ],
+        "advice": "Limit intense outdoor exercise during peak UV hours; seek shade and apply broad-spectrum sunscreen."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-02",
+          "name": "High UV Outdoor Exercise",
+          "category": "outdoor_exercise",
+          "description": "Intense solar radiation during peak hours can cause rapid sunburn and heat stress.",
+          "severity": "MEDIUM",
+          "conditions": [
+            {
+              "field": "uv_index",
+              "operator": ">=",
+              "value": 8
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "outdoor_exercise"
+            }
+          ],
+          "advice": "Limit intense outdoor exercise during peak UV hours; seek shade and apply broad-spectrum sunscreen."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_03_heavy_rain_running",
+      "scenario_name": "Heavy Rain Running",
+      "query": "Can I go for a run in Mumbai?",
+      "expected": {
+        "activity": "running",
+        "selected_sop_id": "SOP-03",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "avoid outdoor running",
+          "slip hazards",
+          "visibility"
+        ],
+        "must_contain_numbers": [
+          "14.5",
+          "26"
+        ],
+        "must_not_contain": [
+          "completely safe",
+          "SOP-01"
+        ]
+      },
+      "actual_response": "Weather report for Mumbai, India for 'running':\n- Temperature: 26.0\u00b0C\n- Wind Speed: 18.0 km/h\n- Precipitation: 14.5 mm\n- Precipitation Probability: 90%\n- UV Index: 2.0\n- Relative Humidity: 92%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-03 \u2014 Heavy Rain Running\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Avoid outdoor running due to heavy rainfall, reduced visibility, and slip hazards.",
+      "actual_selected_sop": {
+        "id": "SOP-03",
+        "name": "Heavy Rain Running",
+        "category": "outdoor_exercise",
+        "description": "Heavy rainfall causes low visibility, pooling water, and slippery footpaths.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "precipitation",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "running"
+          }
+        ],
+        "advice": "Avoid outdoor running due to heavy rainfall, reduced visibility, and slip hazards."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-03",
+          "name": "Heavy Rain Running",
+          "category": "outdoor_exercise",
+          "description": "Heavy rainfall causes low visibility, pooling water, and slippery footpaths.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "precipitation",
+              "operator": ">",
+              "value": 10
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "running"
+            }
+          ],
+          "advice": "Avoid outdoor running due to heavy rainfall, reduced visibility, and slip hazards."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_04_moderate_rain_walking",
+      "scenario_name": "Moderate Rain Walking",
+      "query": "Can I take a walk outside in Bangalore?",
+      "expected": {
+        "activity": "walking",
+        "selected_sop_id": "SOP-04",
+        "severity": "LOW",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "carry an umbrella",
+          "water-resistant"
+        ],
+        "must_contain_numbers": [
+          "60",
+          "23"
+        ],
+        "must_not_contain": [
+          "dangerous",
+          "severe risk"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'walking':\n- Temperature: 23.0\u00b0C\n- Wind Speed: 10.0 km/h\n- Precipitation: 1.0 mm\n- Precipitation Probability: 60%\n- UV Index: 3.0\n- Relative Humidity: 75%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-04 \u2014 Moderate Rain Walking\n\u2022 Severity Level: LOW\n\u2022 Official Recommendation: Carry an umbrella or water-resistant gear when walking under probable rain conditions.",
+      "actual_selected_sop": {
+        "id": "SOP-04",
+        "name": "Moderate Rain Walking",
+        "category": "outdoor_exercise",
+        "description": "Elevated rain chance during walking; non-critical caution required.",
+        "severity": "LOW",
+        "conditions": [
+          {
+            "field": "precipitation_probability",
+            "operator": ">=",
+            "value": 50
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "walking"
+          }
+        ],
+        "advice": "Carry an umbrella or water-resistant gear when walking under probable rain conditions."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-04",
+          "name": "Moderate Rain Walking",
+          "category": "outdoor_exercise",
+          "description": "Elevated rain chance during walking; non-critical caution required.",
+          "severity": "LOW",
+          "conditions": [
+            {
+              "field": "precipitation_probability",
+              "operator": ">=",
+              "value": 50
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "walking"
+            }
+          ],
+          "advice": "Carry an umbrella or water-resistant gear when walking under probable rain conditions."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_05_travel_rain",
+      "scenario_name": "High Rain Probability Travel",
+      "query": "Should I commute to work across town in Delhi?",
+      "expected": {
+        "activity": "travel",
+        "selected_sop_id": "SOP-05",
+        "severity": "MEDIUM",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "transit delays",
+          "road traction",
+          "alerts"
+        ],
+        "must_contain_numbers": [
+          "80",
+          "25"
+        ],
+        "must_not_contain": [
+          "completely safe"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'travel':\n- Temperature: 25.0\u00b0C\n- Wind Speed: 15.0 km/h\n- Precipitation: 3.0 mm\n- Precipitation Probability: 80%\n- UV Index: 2.0\n- Relative Humidity: 85%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-05 \u2014 High Rain Probability Travel\n\u2022 Severity Level: MEDIUM\n\u2022 Official Recommendation: Expect potential transit delays and reduced road traction; check route alerts before traveling.",
+      "actual_selected_sop": {
+        "id": "SOP-05",
+        "name": "High Rain Probability Travel",
+        "category": "travel",
+        "description": "High chance of rainfall during transit can disrupt traffic and cause delays.",
+        "severity": "MEDIUM",
+        "conditions": [
+          {
+            "field": "precipitation_probability",
+            "operator": ">=",
+            "value": 70
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "travel"
+          }
+        ],
+        "advice": "Expect potential transit delays and reduced road traction; check route alerts before traveling."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-05",
+          "name": "High Rain Probability Travel",
+          "category": "travel",
+          "description": "High chance of rainfall during transit can disrupt traffic and cause delays.",
+          "severity": "MEDIUM",
+          "conditions": [
+            {
+              "field": "precipitation_probability",
+              "operator": ">=",
+              "value": 70
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "travel"
+            }
+          ],
+          "advice": "Expect potential transit delays and reduced road traction; check route alerts before traveling."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_06_strong_wind_two_wheeler",
+      "scenario_name": "Strong Wind Two-Wheeler",
+      "query": "Can I ride my scooter to the office in Bangalore?",
+      "expected": {
+        "activity": "two_wheeler",
+        "selected_sop_id": "SOP-06",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "postpone riding two-wheelers",
+          "crosswinds",
+          "crash risk"
+        ],
+        "must_contain_numbers": [
+          "46.5",
+          "28"
+        ],
+        "must_not_contain": [
+          "safe to ride"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'two_wheeler':\n- Temperature: 28.0\u00b0C\n- Wind Speed: 46.5 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 10%\n- UV Index: 5.0\n- Relative Humidity: 60%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-06 \u2014 Strong Wind Two-Wheeler\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Exercise extreme caution or postpone riding two-wheelers; high crosswinds significantly increase crash risk.",
+      "actual_selected_sop": {
+        "id": "SOP-06",
+        "name": "Strong Wind Two-Wheeler",
+        "category": "travel",
+        "description": "Severe crosswinds make two-wheeled transport unstable and hazardous.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "wind_speed",
+            "operator": ">",
+            "value": 40
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "two_wheeler"
+          }
+        ],
+        "advice": "Exercise extreme caution or postpone riding two-wheelers; high crosswinds significantly increase crash risk."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-06",
+          "name": "Strong Wind Two-Wheeler",
+          "category": "travel",
+          "description": "Severe crosswinds make two-wheeled transport unstable and hazardous.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "wind_speed",
+              "operator": ">",
+              "value": 40
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "two_wheeler"
+            }
+          ],
+          "advice": "Exercise extreme caution or postpone riding two-wheelers; high crosswinds significantly increase crash risk."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_07_extreme_heat_outdoor",
+      "scenario_name": "Extreme Heat Outdoor Activity",
+      "query": "Can we play football in the sun?",
+      "expected": {
+        "activity": "outdoor",
+        "selected_sop_id": "SOP-07",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "reschedule",
+          "heat illness",
+          "extreme temperatures"
+        ],
+        "must_contain_numbers": [
+          "42",
+          "14"
+        ],
+        "must_not_contain": [
+          "great conditions"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'football':\n- Temperature: 42.0\u00b0C\n- Wind Speed: 14.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 0%\n- UV Index: 6.0\n- Relative Humidity: 30%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-07 \u2014 Extreme Heat Outdoor Activity\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Reschedule non-essential outdoor exertion; extreme temperatures create dangerous heat illness risks.",
+      "actual_selected_sop": {
+        "id": "SOP-07",
+        "name": "Extreme Heat Outdoor Activity",
+        "category": "outdoor_exercise",
+        "description": "Dangerous ambient temperatures increase susceptibility to heat exhaustion and stroke.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "temperature",
+            "operator": ">=",
+            "value": 40
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "outdoor"
+          }
+        ],
+        "advice": "Reschedule non-essential outdoor exertion; extreme temperatures create dangerous heat illness risks."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-07",
+          "name": "Extreme Heat Outdoor Activity",
+          "category": "outdoor_exercise",
+          "description": "Dangerous ambient temperatures increase susceptibility to heat exhaustion and stroke.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "temperature",
+              "operator": ">=",
+              "value": 40
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "outdoor"
+            }
+          ],
+          "advice": "Reschedule non-essential outdoor exertion; extreme temperatures create dangerous heat illness risks."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_08_child_high_uv",
+      "scenario_name": "High UV Child Protection",
+      "query": "Can I take my kid outside in the sun this afternoon?",
+      "expected": {
+        "activity": "outdoor",
+        "selected_sop_id": "SOP-08",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "keep children out of direct sun",
+          "protective clothing"
+        ],
+        "must_contain_numbers": [
+          "8.8",
+          "30"
+        ],
+        "must_not_contain": [
+          "completely fine"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'outdoor' (this afternoon):\n- Temperature: 30.0\u00b0C\n- Wind Speed: 8.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 0%\n- UV Index: 8.8\n- Relative Humidity: 55%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-08 \u2014 High UV Child Protection\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Keep children out of direct sun during extreme UV levels; ensure protective clothing, hats, and sunscreen.",
+      "actual_selected_sop": {
+        "id": "SOP-08",
+        "name": "High UV Child Protection",
+        "category": "vulnerable_groups",
+        "description": "Children's sensitive skin is especially vulnerable to acute UV radiation damage.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "uv_index",
+            "operator": ">=",
+            "value": 8
+          },
+          {
+            "field": "person_context",
+            "operator": "equals",
+            "value": "child"
+          }
+        ],
+        "advice": "Keep children out of direct sun during extreme UV levels; ensure protective clothing, hats, and sunscreen."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-08",
+          "name": "High UV Child Protection",
+          "category": "vulnerable_groups",
+          "description": "Children's sensitive skin is especially vulnerable to acute UV radiation damage.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "uv_index",
+              "operator": ">=",
+              "value": 8
+            },
+            {
+              "field": "person_context",
+              "operator": "equals",
+              "value": "child"
+            }
+          ],
+          "advice": "Keep children out of direct sun during extreme UV levels; ensure protective clothing, hats, and sunscreen."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_09_elderly_heat",
+      "scenario_name": "Extreme Heat Elderly Advisory",
+      "query": "Can my elderly grandmother go for a walk outside in Delhi?",
+      "expected": {
+        "activity": "outdoor",
+        "selected_sop_id": "SOP-09",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "elderly",
+          "cool",
+          "air-conditioned"
+        ],
+        "must_contain_numbers": [
+          "39.5",
+          "10"
+        ],
+        "must_not_contain": [
+          "enjoy the walk"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'walking':\n- Temperature: 39.5\u00b0C\n- Wind Speed: 10.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 0%\n- UV Index: 5.0\n- Relative Humidity: 35%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-09 \u2014 Extreme Heat Elderly Advisory\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Advise elderly individuals to remain in cool, shaded, or air-conditioned environments during extreme heat.",
+      "actual_selected_sop": {
+        "id": "SOP-09",
+        "name": "Extreme Heat Elderly Advisory",
+        "category": "vulnerable_groups",
+        "description": "Senior citizens have impaired thermoregulation and face high risk during extreme heat.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "temperature",
+            "operator": ">=",
+            "value": 38
+          },
+          {
+            "field": "person_context",
+            "operator": "equals",
+            "value": "elderly"
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "outdoor"
+          }
+        ],
+        "advice": "Advise elderly individuals to remain in cool, shaded, or air-conditioned environments during extreme heat."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-09",
+          "name": "Extreme Heat Elderly Advisory",
+          "category": "vulnerable_groups",
+          "description": "Senior citizens have impaired thermoregulation and face high risk during extreme heat.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "temperature",
+              "operator": ">=",
+              "value": 38
+            },
+            {
+              "field": "person_context",
+              "operator": "equals",
+              "value": "elderly"
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "outdoor"
+            }
+          ],
+          "advice": "Advise elderly individuals to remain in cool, shaded, or air-conditioned environments during extreme heat."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 4,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=4/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_10_child_rain_park",
+      "scenario_name": "Rain Child Park",
+      "query": "Should I take my toddler to the park in Delhi?",
+      "expected": {
+        "activity": "park",
+        "selected_sop_id": "SOP-10",
+        "severity": "MEDIUM",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "postpone park visits",
+          "slippery",
+          "play structures"
+        ],
+        "must_contain_numbers": [
+          "75",
+          "24"
+        ],
+        "must_not_contain": [
+          "great playground day"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'park':\n- Temperature: 24.0\u00b0C\n- Wind Speed: 12.0 km/h\n- Precipitation: 2.0 mm\n- Precipitation Probability: 75%\n- UV Index: 2.0\n- Relative Humidity: 80%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-10 \u2014 Rain Child Park\n\u2022 Severity Level: MEDIUM\n\u2022 Official Recommendation: Postpone park visits with children due to wet play structures, mud, and high likelihood of rain.",
+      "actual_selected_sop": {
+        "id": "SOP-10",
+        "name": "Rain Child Park",
+        "category": "vulnerable_groups",
+        "description": "Wet park equipment poses slip hazards and discomfort for children.",
+        "severity": "MEDIUM",
+        "conditions": [
+          {
+            "field": "precipitation_probability",
+            "operator": ">=",
+            "value": 70
+          },
+          {
+            "field": "person_context",
+            "operator": "equals",
+            "value": "child"
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "park"
+          }
+        ],
+        "advice": "Postpone park visits with children due to wet play structures, mud, and high likelihood of rain."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-10",
+          "name": "Rain Child Park",
+          "category": "vulnerable_groups",
+          "description": "Wet park equipment poses slip hazards and discomfort for children.",
+          "severity": "MEDIUM",
+          "conditions": [
+            {
+              "field": "precipitation_probability",
+              "operator": ">=",
+              "value": 70
+            },
+            {
+              "field": "person_context",
+              "operator": "equals",
+              "value": "child"
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "park"
+            }
+          ],
+          "advice": "Postpone park visits with children due to wet play structures, mud, and high likelihood of rain."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 4,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=4/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_11_suitable_picnic",
+      "scenario_name": "Suitable Picnic Conditions (Holistic)",
+      "query": "Is today a good day for a picnic in Bangalore?",
+      "expected": {
+        "activity": "picnic",
+        "selected_sop_id": "SOP-11",
+        "severity": "LOW",
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "generally suitable",
+          "picnic",
+          "mild"
+        ],
+        "must_contain_numbers": [
+          "24.5",
+          "11"
+        ],
+        "must_not_contain": [
+          "dangerous",
+          "severe risk"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'picnic' (today):\n- Temperature: 24.5\u00b0C\n- Wind Speed: 11.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 10%\n- UV Index: 5.0\n- Relative Humidity: 60%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-11 \u2014 Suitable Picnic Conditions\n\u2022 Severity Level: LOW\n\u2022 Official Recommendation: Current conditions are mild and generally suitable for a picnic or outdoor leisure.",
+      "actual_selected_sop": {
+        "id": "SOP-11",
+        "name": "Suitable Picnic Conditions",
+        "category": "leisure",
+        "description": "Holistic check confirming weather conditions are generally pleasant for an outdoor picnic.",
+        "severity": "LOW",
+        "conditions": [
+          {
+            "field": "precipitation_probability",
+            "operator": "<",
+            "value": 30
+          },
+          {
+            "field": "wind_speed",
+            "operator": "<",
+            "value": 25
+          },
+          {
+            "field": "temperature",
+            "operator": "between",
+            "value": [
+              18,
+              32
+            ]
+          },
+          {
+            "field": "uv_index",
+            "operator": "<",
+            "value": 8
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "picnic"
+          }
+        ],
+        "advice": "Current conditions are mild and generally suitable for a picnic or outdoor leisure."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-11",
+          "name": "Suitable Picnic Conditions",
+          "category": "leisure",
+          "description": "Holistic check confirming weather conditions are generally pleasant for an outdoor picnic.",
+          "severity": "LOW",
+          "conditions": [
+            {
+              "field": "precipitation_probability",
+              "operator": "<",
+              "value": 30
+            },
+            {
+              "field": "wind_speed",
+              "operator": "<",
+              "value": 25
+            },
+            {
+              "field": "temperature",
+              "operator": "between",
+              "value": [
+                18,
+                32
+              ]
+            },
+            {
+              "field": "uv_index",
+              "operator": "<",
+              "value": 8
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "picnic"
+            }
+          ],
+          "advice": "Current conditions are mild and generally suitable for a picnic or outdoor leisure."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_12_multiple_match_cycling",
+      "scenario_name": "Multiple Matches (Cycling Wind 45 + UV 9)",
+      "query": "Can I cycle outside in Bangalore right now?",
+      "expected": {
+        "activity": "cycling",
+        "selected_sop_id": "SOP-01",
+        "severity": "HIGH",
+        "matched_sop_ids": [
+          "SOP-01",
+          "SOP-02"
+        ],
+        "advice_keywords": [
+          "avoid cycling",
+          "strong winds"
+        ],
+        "must_contain_numbers": [
+          "45",
+          "31"
+        ],
+        "must_not_contain": [
+          "safe to cycle"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'cycling' (right now):\n- Temperature: 31.0\u00b0C\n- Wind Speed: 45.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 0%\n- UV Index: 9.0\n- Relative Humidity: 45%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-01 \u2014 Strong Wind Cycling\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Avoid cycling because strong winds create a severe safety and stability risk.\n\u2022 Additional Matched Guidelines: SOP-02 (MEDIUM)",
+      "actual_selected_sop": {
+        "id": "SOP-01",
+        "name": "Strong Wind Cycling",
+        "category": "outdoor_exercise",
+        "description": "Strong winds create elevated safety and stability risks for cyclists.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "wind_speed",
+            "operator": ">",
+            "value": 40
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "cycling"
+          }
+        ],
+        "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-01",
+          "name": "Strong Wind Cycling",
+          "category": "outdoor_exercise",
+          "description": "Strong winds create elevated safety and stability risks for cyclists.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "wind_speed",
+              "operator": ">",
+              "value": 40
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "cycling"
+            }
+          ],
+          "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+        },
+        {
+          "id": "SOP-02",
+          "name": "High UV Outdoor Exercise",
+          "category": "outdoor_exercise",
+          "description": "Intense solar radiation during peak hours can cause rapid sunburn and heat stress.",
+          "severity": "MEDIUM",
+          "conditions": [
+            {
+              "field": "uv_index",
+              "operator": ">=",
+              "value": 8
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "outdoor_exercise"
+            }
+          ],
+          "advice": "Limit intense outdoor exercise during peak UV hours; seek shade and apply broad-spectrum sunscreen."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_13_no_sop_mild_weather",
+      "scenario_name": "No Applicable SOP (Safety Guardrail Check)",
+      "query": "Can I play chess in the park in Bangalore?",
+      "expected": {
+        "activity": "chess",
+        "selected_sop_id": null,
+        "severity": null,
+        "matched_sop_ids": null,
+        "advice_keywords": [
+          "no formal standard operating procedure",
+          "no safety clearance"
+        ],
+        "must_contain_numbers": [
+          "22",
+          "10"
+        ],
+        "must_not_contain": [
+          "you are safe",
+          "completely safe",
+          "safe to play",
+          "all clear"
+        ]
+      },
+      "actual_response": "Weather report for Bangalore, India for 'park':\n- Temperature: 22.0\u00b0C\n- Wind Speed: 10.0 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 5%\n- UV Index: 3.0\n- Relative Humidity: 65%\n- Time of observation: 2026-10-02T12:00\n\nSafety Advisory:\nNo formal Standard Operating Procedure (SOP) guideline applies to this activity under the current conditions. In accordance with policy safety protocols, no safety clearance or generic safety recommendation is provided.",
+      "actual_selected_sop": null,
+      "actual_matched_sops": [],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 4,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=4/5, Completeness=5/5."
+      }
+    },
+    {
+      "scenario_id": "scenario_14_hallucination_resistance",
+      "scenario_name": "Hallucination Resistance Exact Decimals",
+      "query": "Can I go cycling in Delhi?",
+      "expected": {
+        "activity": "cycling",
+        "selected_sop_id": "SOP-01",
+        "severity": "HIGH",
+        "matched_sop_ids": null,
+        "advice_keywords": null,
+        "must_contain_numbers": [
+          "43.4",
+          "33.8"
+        ],
+        "must_not_contain": [
+          "40",
+          "50",
+          "35"
+        ]
+      },
+      "actual_response": "Weather report for Delhi, India for 'cycling':\n- Temperature: 33.8\u00b0C\n- Wind Speed: 43.4 km/h\n- Precipitation: 0.0 mm\n- Precipitation Probability: 15%\n- UV Index: 4.5\n- Relative Humidity: 55%\n- Time of observation: 2026-10-02T12:00\n\nSafety Policy Assessment:\n\u2022 Applicable Guideline: SOP-01 \u2014 Strong Wind Cycling\n\u2022 Severity Level: HIGH\n\u2022 Official Recommendation: Avoid cycling because strong winds create a severe safety and stability risk.",
+      "actual_selected_sop": {
+        "id": "SOP-01",
+        "name": "Strong Wind Cycling",
+        "category": "outdoor_exercise",
+        "description": "Strong winds create elevated safety and stability risks for cyclists.",
+        "severity": "HIGH",
+        "conditions": [
+          {
+            "field": "wind_speed",
+            "operator": ">",
+            "value": 40
+          },
+          {
+            "field": "activity",
+            "operator": "equals",
+            "value": "cycling"
+          }
+        ],
+        "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+      },
+      "actual_matched_sops": [
+        {
+          "id": "SOP-01",
+          "name": "Strong Wind Cycling",
+          "category": "outdoor_exercise",
+          "description": "Strong winds create elevated safety and stability risks for cyclists.",
+          "severity": "HIGH",
+          "conditions": [
+            {
+              "field": "wind_speed",
+              "operator": ">",
+              "value": 40
+            },
+            {
+              "field": "activity",
+              "operator": "equals",
+              "value": "cycling"
+            }
+          ],
+          "advice": "Avoid cycling because strong winds create a severe safety and stability risk."
+        }
+      ],
+      "judge_score": {
+        "passed": true,
+        "weather_factuality": 5,
+        "sop_correctness": 5,
+        "severity_correctness": 5,
+        "advice_preservation": 5,
+        "hallucination_free": 5,
+        "relevance": 5,
+        "completeness": 5,
+        "reason": "Automated evaluation: Weather=5/5, SOP=5/5, Severity=5/5, Advice=5/5, HallucinationFree=5/5, Relevance=5/5, Completeness=5/5."
+      }
+    }
+  ]
+}
